@@ -38,7 +38,7 @@ let server = http.createServer( (req, res) => {
       let object_text='';
       html_data.split("\n").forEach( (line) => {
 
-        if(/"normalList":\[[^\]]/.test(line)){
+        if(/"normalList":\[[\s]/.test(line)){
           capture=1;
         }
 
