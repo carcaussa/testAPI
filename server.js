@@ -36,6 +36,7 @@ let server = http.createServer( (req, res) => {
       // Select only relevant output
       let capture=0;
       let object_text='';
+      let n=1;
       html_data.split("\n").forEach( (line) => {
 
         if(/"normalList":\[[\s]/.test(line)){
@@ -49,6 +50,9 @@ let server = http.createServer( (req, res) => {
         if(capture==1){
           object_text+=line;
         }
+
+        object_text="****" + n + "****";
+        n++;
 
       });
 
