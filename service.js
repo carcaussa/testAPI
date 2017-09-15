@@ -2,7 +2,7 @@
 /* jshint esversion: 6 */
 'use strict';
 
-console.log('Debug: ', process.env);
+// console.log('Debug: ', process.env);
 
 const http     = require('http'),
       srv_port = 3000;
