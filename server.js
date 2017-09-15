@@ -36,7 +36,7 @@ let server = http.createServer( (req, res) => {
       // Select only relevant output
       let capture=0;
       let object_text='';
-      html_data.split("\n").forEach( (line) => {
+      html_data.split("\r\n").forEach( (line) => {
 
         if(/"normalList":\[/.test(line)){
           capture=1;
