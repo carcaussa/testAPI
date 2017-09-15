@@ -57,7 +57,7 @@ let server = http.createServer( (req, res) => {
       try {
         list=JSON.parse( '{' + object_text.slice(0, -1) + '}' );
       } catch (err){
-        list='Cannot create object: ' + err + ' Query: ', query, ' Debug URL: ', debug_url;
+        list=debug_url;
       }
       // Output result
       res.setHeader('Content-Type', 'application/json');
