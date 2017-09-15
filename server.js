@@ -52,8 +52,11 @@ let server = http.createServer( (req, res) => {
       });
 
       // Create object
-      let list=JSON.parse( '{' + object_text.slice(0, -1) + '}' );
-
+      try {
+        let list=JSON.parse( '{' + object_text.slice(0, -1) + '}' );
+      } catch (err){
+        let list='Cannot create object' + err.msg;
+      }
       // Output result
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Cache-Control', 'no-cache, no-store');
