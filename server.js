@@ -57,7 +57,7 @@ let server = http.createServer( (req, res) => {
       try {
         list=JSON.parse( '{' + object_text.slice(0, -1) + '}' );
       } catch (err){
-        list=debug_url;
+        list=query;
       }
       // Output result
       res.setHeader('Content-Type', 'application/json');
