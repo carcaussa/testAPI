@@ -1,7 +1,7 @@
 {
   "name": "global_sourcing_app",
   "version": "1.0.0",
-  "description": "Global Sourcing App",
+  "description": "Global Sourcing API v1",
   "main": "service.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
