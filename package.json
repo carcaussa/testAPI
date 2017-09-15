@@ -2,10 +2,10 @@
   "name": "global_sourcing_app",
   "version": "1.0.0",
   "description": "Global Sourcing API v1",
-  "main": "service.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node /home/site/wwwroot/service.js"
+    "start": "node /home/site/wwwroot/server.js"
   },
   "author": "Omar Servin",
   "license": "ISC"
