@@ -2,8 +2,6 @@
 /* jshint esversion: 6 */
 'use strict';
 
-// console.log('Debug: ', process.env);
-
 const http     = require('http'),
       srv_port = 3000;
 
@@ -22,8 +20,8 @@ let server = http.createServer( (req, res) => {
   http.request(options, (result) => {
 
     // Monitor only for my node server
-    console.log('STATUS: ' + result.statusCode);
-    console.log(options.path);
+    // console.log('STATUS: ' + result.statusCode);
+    // console.log(options.path);
 
     result.setEncoding('utf8');
 
@@ -36,7 +34,7 @@ let server = http.createServer( (req, res) => {
       // Select only relevant output
       let capture=0;
       let object_text='';
-      let n=1;
+
       html_data.split("\n").forEach( (line) => {
 
         if(/[^,]"normalList":\[/.test(line)){
@@ -51,9 +49,6 @@ let server = http.createServer( (req, res) => {
           object_text+=line;
         }
 
-        // object_text="****" + n + "****";
-        // n++;
-
       });
 
       // Create object
@@ -61,7 +56,7 @@ let server = http.createServer( (req, res) => {
       try {
         list=JSON.parse( '{' + object_text.slice(0, -1) + '}' );
       } catch (err){
-        list=object_text;
+        list='Error parsing Alibaba JSON';
       }
       // Output result
       res.setHeader('Content-Type', 'application/json');
@@ -75,11 +70,6 @@ let server = http.createServer( (req, res) => {
 
 });
 
-// server.listen(process.env.PORT || process.env.NODE_PORT || srv_port, process.env.NODE_IP || 'walmartapi.scm.azurewebsites.net', () => {
 server.listen(process.env.PORT || process.env.NODE_PORT || srv_port, process.env.NODE_IP || srv_port, () => {
   console.log(`Application worker ${process.pid} started on port ${srv_port} ...`);
 });
-
-// , 'localhost', () => {
-//   console.log(`Application worker ${process.pid} started on port ${srv_port} ...`);
-// });
