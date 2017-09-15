@@ -39,7 +39,7 @@ let server = http.createServer( (req, res) => {
       let n=1;
       html_data.split("\n").forEach( (line) => {
 
-        if(/"normalList":\[[\t]/.test(line)){
+        if(/"normalList":\[[ ]/.test(line)){
           capture=1;
         }
 
