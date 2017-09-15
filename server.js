@@ -10,6 +10,7 @@ const http     = require('http'),
 let server = http.createServer( (req, res) => {
 
   const url = require('url');
+  let debug_url = url.parse(req.url);
   let query   = url.parse(req.url).query,
       options = {
         host: 'www.alibaba.com',
@@ -56,7 +57,7 @@ let server = http.createServer( (req, res) => {
       try {
         list=JSON.parse( '{' + object_text.slice(0, -1) + '}' );
       } catch (err){
-        list='Cannot create object: ' + err + ' Query: ', query;
+        list='Cannot create object: ' + err + ' Query: ', query, ' Debug URL: ', debug_url;
       }
       // Output result
       res.setHeader('Content-Type', 'application/json');
