@@ -67,7 +67,9 @@ let server = http.createServer( (req, res) => {
 });
 
 // server.listen(process.env.PORT || process.env.NODE_PORT || srv_port, process.env.NODE_IP || 'walmartapi.scm.azurewebsites.net', () => {
-server.listen(3000);
+server.listen(process.env.PORT || process.env.NODE_PORT || srv_port, process.env.NODE_IP || srv_port, () => {
+  console.log(`Application worker ${process.pid} started on port ${srv_port} ...`);
+});
 
 // , 'localhost', () => {
 //   console.log(`Application worker ${process.pid} started on port ${srv_port} ...`);
