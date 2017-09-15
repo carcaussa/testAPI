@@ -67,7 +67,7 @@ let server = http.createServer( (req, res) => {
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Cache-Control', 'no-cache, no-store');
       res.writeHead(result.statusCode);
-      res.end(JSON.stringify(object_text));
+      res.end(JSON.stringify(list));
 
     });
 
