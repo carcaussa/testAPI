@@ -2,6 +2,8 @@
 /* jshint esversion: 6 */
 'use strict';
 
+console.log('Debug: ', process.env);
+
 const http     = require('http'),
       srv_port = 3000;
 
@@ -65,6 +67,7 @@ let server = http.createServer( (req, res) => {
 });
 
 
-server.listen(process.env.NODE_PORT || srv_port, process.env.NODE_IP || 'walmartapi.azurewebsites.net', () => {
+server.listen(process.env.PORT || process.env.NODE_PORT || srv_port, process.env.NODE_IP || 'walmartapi.azurewebsites.net', () => {
   console.log(`Application worker ${process.pid} started on port ${srv_port} ...`);
+
 });
